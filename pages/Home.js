@@ -1,8 +1,9 @@
 import { View, Text, ScrollView } from "react-native";
 import Boxes from "../components/Boxes";
-import Header from "../components/Header";
+
 import Cards from "../components/Card";
 import { StyleSheet } from "react-native";
+import Search from "../components/Filtro";
 
 export default function Home() {
   /*#falta tiene que recibir los objetos de la base de datos */
@@ -25,18 +26,17 @@ export default function Home() {
 
   return (
 
-    <>
-      {/* Header */}
-      <Header />
+    <>  
+     <Search/>
       {/* Creamos una box y le pasamos el prametro de tamaño */}
       <Boxes size={1}>
         {/* ScrollView para poder scrollear */}
         <ScrollView contentContainerStyle={styles.scrollContent}>
           {/* Recorremos el array de objetos en 2 columnas utilizando el componente-> Cards */}
           {state.names.map((item, index) => (
-            <View style={styles.two_column_scroll}>              
+            <View key={index} style={styles.two_column_scroll}>              
               <Cards key={index}>
-                <Text>{item.name}</Text>
+                {item.name}
               </Cards>
             </View>
           ))}

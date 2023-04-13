@@ -1,13 +1,16 @@
 import * as React from "react";
-import Home from "./pages/Home";
+
 import { StyleSheet } from "react-native";
-import { View, Text } from "react-native";
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+
+import Navigation from "./components/Navigation";
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <View style={[styles.container, { flexDirection: "column" }]}>
-      <Home />
-    </View>
+    <Navigation/>
   );
 }
 const styles = StyleSheet.create({
