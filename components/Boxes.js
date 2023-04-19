@@ -1,9 +1,8 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
+import { paleta } from "./Colores";
 
-const backgroundColor = "#151515";
-
-export default function Boxes({ children, size,bg,br,clr}) {
+export default function Boxes({ children, size, bg, br, clr }) {
   return (
     <View
       /*parametro size para personalizar el tamaño */
@@ -11,13 +10,20 @@ export default function Boxes({ children, size,bg,br,clr}) {
         styles.container,
         {
           flex: size,
-          backgroundColor: bg==undefined ? backgroundColor :bg,
-          borderRadius : br==undefined ? 0 :br,
-          padding:10,
+          backgroundColor: bg == undefined ? paleta.fondo : bg,
+          borderRadius: br == undefined ? 0 : br,
+          padding: 10,
         },
       ]}
     >
-      <View style={[styles.inner,{flexDirection:clr==undefined ? 'row' :clr}]} >{children}</View>
+      <View
+        style={[
+          styles.inner,
+          { flexDirection: clr == undefined ? "row" : clr },
+        ]}
+      >
+        {children}
+      </View>
     </View>
   );
 }
@@ -31,8 +37,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     //alignItems: "center",
-   // flexDirection: "row",
-   // backgroundColor: backgroundColor,
+    // flexDirection: "row",
+    // backgroundColor: backgroundColor,
     justifyContent: "center",
   },
 });

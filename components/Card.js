@@ -2,21 +2,20 @@ import * as React from "react";
 import { Avatar, Button, Card } from "react-native-paper";
 import { StyleSheet } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import { paleta } from "./Colores";
 
 
 
 
-const iconBackground = "#830406";
-const cardBackground = "#F49116";
 
 const styles = StyleSheet.create({
   Icon: {
-    backgroundColor: iconBackground,
+    backgroundColor: paleta.variante3,
   },
   Tarjeta: {
     margin: 10,
     flex: 1,
-    backgroundColor: cardBackground,
+    backgroundColor: paleta.variante1,
   },
 });
 

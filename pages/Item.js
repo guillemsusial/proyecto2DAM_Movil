@@ -1,7 +1,7 @@
 import { View, Text, Button, ScrollView, FlatList } from "react-native";
 import Boxes from "../components/Boxes";
 import { StyleSheet } from "react-native";
-
+import { paleta } from "../components/Colores";
 import { Image } from "react-native";
 
 //exp://172.17.40.175:19000
@@ -66,12 +66,13 @@ export default function Item() {
   const Emotor = Object.entries(test.especificaciones_del_motor);
   const Dimensiones = Object.entries(test.dimensiones);
   function MapeoDios(item) {
-      {/* Falta acabar de depurar el map que devuelve Mapeo de Arriba */}
+    {
+      /* Falta acabar de depurar el map que devuelve Mapeo de Arriba */
+    }
     if (typeof item[1] === "object") {
       let result = Mapeo(item[1]);
       return (
         <View contentContainerStyle={styles.scrollContent}>
-        
           <View style={styles.two_column_scroll}>{result[0]}</View>
           <View style={styles.two_column_scroll}>{result[1]}</View>
         </View>
@@ -80,10 +81,12 @@ export default function Item() {
       return (
         <View style={styles.two_column_scroll}>
           <View style={{ width: "60%" }}>
-            <Text style={{ color: "white", fontSize: 19 }}>{item[0]}</Text>
+            <Text style={{ color: paleta.text, fontSize: 19 }}>{item[0]}</Text>
           </View>
           <View style={{ width: "30%" }}>
-            <Text style={{ color: "#999", fontSize: 19 }}>{item[1]}</Text>
+            <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
+              {item[1]}
+            </Text>
           </View>
         </View>
       );
@@ -95,10 +98,12 @@ export default function Item() {
       for (var key in Map) {
         s.push([
           <View style={{ width: "60%" }}>
-            <Text style={{ color: "white", fontSize: 19 }}>{key}</Text>
+            <Text style={{ color: paleta.text, fontSize: 19 }}>{key}</Text>
           </View>,
           <View style={{ width: "30%" }}>
-            <Text style={{ color: "#999", fontSize: 19 }}>{Map[key]}</Text>
+            <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
+              {Map[key]}
+            </Text>
           </View>,
         ]);
       }
@@ -111,7 +116,7 @@ export default function Item() {
   return (
     <Boxes size={1}>
       {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}> */}
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.containerDos}>
           <Image
             source={{
@@ -132,29 +137,25 @@ export default function Item() {
         </View>
         <Text style={styles.content}>{post.content}</Text>
 
-        <ScrollView contentContainerStyle={styles.scrollContent}>
-          <Boxes size={1} bg={"#ffa108"} br={10} clr={"column"}>
-            <Text style={styles.miniTitle}>Velocidades</Text>
+        {/* <ScrollView contentContainerStyle={styles.scrollContent}> */}
+        <Boxes size={1} bg={"#ffa108"} br={10} clr={"column"}>
+          <Text style={styles.miniTitle}>Velocidades</Text>
 
-            {Didentidad.map((item) => {
-              return MapeoDios(item);
-            })}
+          {Didentidad.map((item) => {
+            return MapeoDios(item);
+          })}
 
-            <Text style={styles.miniTitle}>
-              Especificaciones del Motor
-            </Text>
-            {Emotor.map((item) => {
-              return MapeoDios(item);
-            })}
-            <Text style={styles.miniTitle}>
-              Dimensiones
-            </Text>
-            {Dimensiones.map((item) => {
-              return MapeoDios(item);
-            })}
-          </Boxes>
-        </ScrollView>
-      </View>
+          <Text style={styles.miniTitle}>Especificaciones del Motor</Text>
+          {Emotor.map((item) => {
+            return MapeoDios(item);
+          })}
+          <Text style={styles.miniTitle}>Dimensiones</Text>
+          {Dimensiones.map((item) => {
+            return MapeoDios(item);
+          })}
+        </Boxes>
+      </ScrollView>
+      {/* </ScrollView> */}
     </Boxes>
   );
 }
@@ -163,10 +164,11 @@ export default function Item() {
 const styles = StyleSheet.create({
   container: {
     marginTop: 10,
-    padding: 20,
+    // padding: 20,
   },
   containerDos: {
-    backgroundColor: "orange",
+    maxHeight: 300,
+    backgroundColor: paleta.variante1,
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 27,
     borderTopRightRadius: 50,
@@ -177,7 +179,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "white",
+    color: paleta.text,
     marginTop: 10,
   },
   meta: {
@@ -186,22 +188,22 @@ const styles = StyleSheet.create({
   },
   author: {
     fontSize: 19,
-    color: "#999",
+    color: paleta.fondoT,
     marginRight: 10,
   },
   date: {
     fontSize: 19,
-    color: "#999",
+    color: paleta.fondoT,
   },
   image: {
     width: "auto",
-    height: 300,
+    height: "100%",
     //Below lines will help to set the border radius
     borderRadius: 15,
     overflow: "hidden",
   },
   content: {
-    color: "white",
+    color: paleta.text,
     fontSize: 16,
     marginTop: 20,
   },
@@ -212,7 +214,7 @@ const styles = StyleSheet.create({
   two_column_scroll: {
     width: "90%",
     margin: 10,
-    backgroundColor: "#151515",
+    backgroundColor: paleta.fondo,
     padding: 10,
     borderRadius: 10,
     flexDirection: "row",
@@ -222,7 +224,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: "90%",
     margin: 10,
-    backgroundColor: "#151515",
+    backgroundColor: paleta.fondo,
     padding: 10,
     borderRadius: 10,
     flexDirection: "column",
@@ -231,7 +233,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     borderBottomWidth: 2,
-    borderBottomColor: "black",
+    borderBottomColor: paleta.fondo,
     marginTop: 10,
   },
 });

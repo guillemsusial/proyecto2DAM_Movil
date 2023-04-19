@@ -1,12 +1,12 @@
 import * as React from "react";
 
 import { StyleSheet } from "react-native";
-import { createDrawerNavigator } from '@react-navigation/drawer';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
 import Navigation from "./components/Navigation";
 
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
