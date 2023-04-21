@@ -4,10 +4,6 @@ import { StyleSheet } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { paleta } from "./Colores";
 
-
-
-
-
 const styles = StyleSheet.create({
   Icon: {
     backgroundColor: paleta.variante3,
@@ -24,14 +20,16 @@ const LeftContent = (props) => (
   <Avatar.Icon style={styles.Icon} {...props} icon="car" />
 );
 
-export default function Cards({ children }) {
+export default function Cards({...props}) {
   const navigation = useNavigation();
   return (
     <Card
       style={styles.Tarjeta}
       onPress={() => navigation.navigate("Item", {
-        itemId: 86,
-        otherParam: children,
+        itemId: props.key,
+        name: props.name,
+        ano_inicio: props.ano_inicio,
+        ano_finalizacion: props.ano_finalizacion
       })}
       
     >
@@ -42,7 +40,7 @@ export default function Cards({ children }) {
         }}
       />
       <Card.Title
-        title={children}
+        title={props.name}
         subtitle="Card Subtitle"
         left={LeftContent}
       />

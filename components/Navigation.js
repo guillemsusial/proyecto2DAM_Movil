@@ -23,6 +23,7 @@ export default function Navigation() {
         drawerContent={(props) => <CustomDrawer {...props} />}
         useLegacyImplementation={true}
         screenOptions={{
+          unmountOnBlur: true,
           drawerLabelStyle: {
             fontSize: 24,
             fontFamily: "Roboto",
