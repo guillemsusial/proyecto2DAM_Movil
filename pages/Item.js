@@ -203,6 +203,28 @@ export default function Item({ route, navigation }) {
           </View>        
        
       ]); }
+      else if(Map['velocidad_maxima']){
+        s.push([        
+             
+            <View style={{ width: "60%" }}>
+              <Text style={{ color: paleta.text, fontSize: 19 }}>velocidad_maxima</Text>
+            </View>,
+            <View style={{ width: "40%" }}>
+              <Text style={{ color: paleta.fondoT, fontSize: 19 }}>{Map['velocidad_maxima']} {Map['unidad_de_velocidad']}</Text>
+            </View>        
+         
+        ]); }
+        else if(Map['unidad_de_aceleracion']){
+          s.push([        
+               
+              <View style={{ width: "60%" }}>
+                <Text style={{ color: paleta.text, fontSize: 19 }}>0-100_km/h</Text>
+              </View>,
+              <View style={{ width: "40%" }}>
+                <Text style={{ color: paleta.fondoT, fontSize: 19 }}>{Map['0-100_km/h']} {Map['unidad_de_aceleracion']}</Text>
+              </View>        
+           
+          ]); }
     else{
     try {
       for (var key in Map) {      
