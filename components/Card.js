@@ -41,7 +41,7 @@ export default function Cards({...props}) {
       />
       <Card.Title
         title={props.name}
-        subtitle="Card Subtitle"
+        subtitle={props.ano_inicio+'-'+props.ano_finalizacion}
         left={LeftContent}
       />
     </Card>

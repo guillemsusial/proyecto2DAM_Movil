@@ -1,5 +1,5 @@
 import React from "react";
-import { colors, paleta } from "./Colores";
+import { paleta } from "./Colores";
 import {
   View,
   Text,
@@ -11,11 +11,7 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
-
 import Ionicons from "react-native-vector-icons/Ionicons";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import { color } from "react-native-reanimated";
-
 
 
 const CustomDrawer = (props) => {

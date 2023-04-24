@@ -11,6 +11,7 @@ import Login from "../pages/Login";
 import Account from "../pages/Account";
 import Home from "../pages/Home";
 import Item from "../pages/Item";
+import Profile from "../pages/Profile";
 
 //exp://192.168.1.149:19000
 
@@ -23,7 +24,6 @@ export default function Navigation() {
         drawerContent={(props) => <CustomDrawer {...props} />}
         useLegacyImplementation={true}
         screenOptions={{
-          unmountOnBlur: true,
           drawerLabelStyle: {
             fontSize: 24,
             fontFamily: "Roboto",
@@ -78,15 +78,15 @@ export default function Navigation() {
         />
         <Drawer.Screen
           name={"Profile"}
-          component={Account}
+          component={Profile}
           options={({ navigation, route }) => ({
-            headerTitle: "",
+            headerTitle: "userX",
             headerLeft: () => (
               <Ionicons
                 name="chevron-back-outline"
                 size={32}
                 color={paleta.variante1}
-                onPress={() => navigation.goBack()}
+                onPress={() => navigation.navigate("Home")}
               />
             ),
             drawerIcon: ({ color }) => (
@@ -106,11 +106,21 @@ export default function Navigation() {
         <Drawer.Screen
           name={"Item"}
           component={Item}
-          options={{
+          options={({ navigation, route }) => ({
+            headerLeft: () => (
+              <Ionicons
+                name="chevron-back-outline"
+                size={32}
+                color={paleta.variante1}
+                onPress={() => navigation.navigate("Home")}
+              />
+            ),
+            unmountOnBlur: true,
+            headerTitle: "X",
             drawerLabel: () => null,
             title: undefined,
             drawerItemStyle: { display: "none" },
-          }}
+          })}
         />
       </Drawer.Navigator>
     </NavigationContainer>
