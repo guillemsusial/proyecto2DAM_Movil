@@ -5,67 +5,18 @@ import { useState, useEffect } from "react";
 import Cards from "../components/Card";
 import { StyleSheet } from "react-native";
 import Search from "../components/Filtro";
-
-import axios from "axios";
+import fetchHomeData from "../services/HomeApiCall"
 
 export default function Home() {
   const [state, setState] = useState({ names: [] });
-  //peticion
-  const data = {
-    dataSource: "Proyecto2DAM",
-    database: "CarWikiAR",
-    collection: "cars",
-    projection: {
-      id: 1,
-      nombre: 1,
-      "datos_identificativos.fabricante": 1,
-      "datos_identificativos.años_de_fabricacion.año_de_inicio": 1,
-      "datos_identificativos.años_de_fabricacion.año_de_finalizacion": 1,
-    },
-  };
-
+  // Hacemos la peticion a la API
   useEffect(() => {
-    axios
-      .post(
-        "https://eu-central-1.aws.data.mongodb-api.com/app/data-gnxiz/endpoint/data/v1/action/find",
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Request-Headers": "*",
-            "api-key":
-              "j4hxTuaF2IokPNQYhBoo7OBeVEk8WTEI7JeMrByQQ6LLnAPglV7AOLe3CSNZ52yq",
-            Accept: "application/json",
-          },
-        }
-      )
-      .then((response) => {
-        //la respuesta la introducimos en la variable data
-        var data = response.data;
-
-       //formateamos la respuesta
-
-        let formattedData = {
-          names: data.documents.map(
-            ({ _id, nombre, datos_identificativos }) => ({
-              id: _id,
-              name: nombre,
-              brand: datos_identificativos.fabricante,
-              ano_inicio:
-                datos_identificativos.años_de_fabricacion.año_de_inicio,
-              ano_finalizacion:
-                datos_identificativos.años_de_fabricacion.año_de_finalizacion,
-            })
-          ),
-        };
-        console.log(formattedData);
-        setState(formattedData); // Actualizamos el estado con los nombres obtenidos de la base de datos
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []); // Añadimos un array vacío como segundo parámetro para que useEffect solo se ejecute una vez al cargar la página
-
+    async function fetchData() {
+      const formattedData = await fetchHomeData();
+      setState(formattedData);
+    }
+    fetchData();
+  }, []);
   return (
     <>
       <Search />

@@ -7,6 +7,7 @@ const Search = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
 
+  //FALTA barra de busqueda
   //https://medium.com/@betomoedano01/search-filter-react-native-search-bar-tutorial-fe3069fa55b5
 
   return (
