@@ -25,10 +25,10 @@ export default function Home() {
         {/* ScrollView para poder scrollear */}
         <ScrollView contentContainerStyle={styles.scrollContent}>
           {/* Recorremos el array de objetos en 2 columnas utilizando el componente-> Cards */}
-          {state.names.map((item, index) => (
-            <View key={index} style={styles.two_column_scroll}>
+          {state.names.map((item) => (
+            <View key={item.id} style={styles.two_column_scroll}>
               <Cards
-                key={index}
+                key={item.id}
                 name={item.name}
                 ano_inicio={item.ano_inicio}
                 ano_finalizacion={item.ano_finalizacion}

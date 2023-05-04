@@ -10,17 +10,34 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import insertUserData from "../services/InsertUser";
 import { Dimensions } from "react-native";
 const Alto = Dimensions.get("window").width;
 const Ancho = Dimensions.get("window").height;
 import { colors, paleta } from "../components/Colores";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-export default function Account() {
+
+export default function Account({ navigation }) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [isChecked, setChecked] = useState(false);
+  // const [isChecked, setChecked] = useState(false);
+
+  const handlePress = async () => {
+    try {
+      const idUser = await insertUserData(name, email, password);
+      if(idUser==undefined){
+        console.log("Usuario no insertado")
+      }else{
+        console.log(`Usuario insertado con el ID: ${idUser}`)
+        navigation.navigate("Login")
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.Title}>Create an Account</Text>
@@ -55,7 +72,7 @@ export default function Account() {
           onChangeText={(password) => setPassword(password)}
         />
       </View>
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity style={styles.loginBtn} onPress={handlePress}>
         <Text style={styles.loginText}>Continue</Text>
       </TouchableOpacity>
 

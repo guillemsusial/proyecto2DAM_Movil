@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import checkUser from "../services/LoginUser";
 import Checkbox from "expo-checkbox";
 import { Dimensions } from "react-native";
 const Alto = Dimensions.get("window").width;
@@ -18,6 +19,21 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setChecked] = useState(false);
+
+  const handlePress = async () => {
+    try {
+      if(await checkUser(email, password)){
+        console.log("Inicio de sesión correcto")
+        navigation.navigate("Home")
+      }else{
+        //FALTA: mensaje error
+        console.log("Inicio de sesión incorrecto")
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.Title}>Log In</Text>
@@ -57,7 +73,7 @@ export default function Login({ navigation }) {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.loginBtn}
-        onPress={() => navigation.navigate("Home")}
+        onPress={handlePress} //navigation.navigate("Home")
       >
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>

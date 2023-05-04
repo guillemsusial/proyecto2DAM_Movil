@@ -4,69 +4,46 @@ import { StyleSheet } from "react-native";
 import { paleta } from "../components/Colores";
 import { Image } from "react-native";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import fetchItemData from "../services/ItemApiCall"
 
 //exp://172.17.40.175:19000
 
-//faltan las imagenes que pertenecen a cada coche(BBDD¿?)
+//Faltan las imagenes que pertenecen a cada coche(BBDD¿?)
 
 export default function Item({ route, navigation }) {
-  // Inicializamos state como un estado vacío
+  
+  // Inicializamos los state como estados vacíos y segmentamos la especificaciones
   const [state, setState] = useState({});
-
-  //segmentamos la especificaciones.
   const [Didentidad, setDidentidad] = useState({});
   const [Emotor, setEmotor] = useState({});
   const [Dimensiones, setDimensiones] = useState({});
   const [Pesos, setPesos] = useState({});
   const [Etransmision, setEtransmision] = useState({});
   const [Velocidades, setVelocidades] = useState({});
-  //variables recibidas por parametro(generalmente desde home)
+
+  // Variables recibidas por parametro(generalmente desde home)
   const { name, ano_inicio, ano_finalizacion, brand } = route.params;
-
-  //query para AXIOS
-  const queryData = {
-    dataSource: "Proyecto2DAM",
-    database: "CarWikiAR",
-    collection: "cars",
-    filter: {
-      nombre: name,
-    },
-  };
-
+  
+  // Utilizamos useEffect para realizar la petición axios al cargar la página
   useEffect(() => {
-    // Utilizamos useEffect para realizar la petición axios al cargar la página
-    axios
-      .post(
-        "https://eu-central-1.aws.data.mongodb-api.com/app/data-gnxiz/endpoint/data/v1/action/findOne",
-        queryData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Request-Headers": "*",
-            "api-key":
-              "j4hxTuaF2IokPNQYhBoo7OBeVEk8WTEI7JeMrByQQ6LLnAPglV7AOLe3CSNZ52yq",
-            Accept: "application/json",
-          },
-        }
-      )
-      .then((response) => {
-        //Hacemos un pequeño ajuste a la respuesta de la petición
-        var data = response.data.document;
 
-        // Actualizamos el estado con los nombres obtenidos de la base de datos
-        setState(data);
-        //los metemos en las variables de estado
-        setDidentidad(data.datos_identificativos);
-        setEmotor(data.especificaciones_del_motor);
-        setDimensiones(data.dimensiones);
-        setPesos(data.pesos);
-        setEtransmision(data.especificaciones_de_la_transmision);
-        setVelocidades(data.velocidades);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    //Llamada asíncrona a la API
+    async function fetchData() {
+      const data = await fetchItemData(name);
+
+      // Actualizamos el estado con los nombres obtenidos de la base de datos
+      setState(data);
+
+      //los metemos en las variables de estado
+      setDidentidad(data.datos_identificativos);
+      setEmotor(data.especificaciones_del_motor);
+      setDimensiones(data.dimensiones);
+      setPesos(data.pesos);
+      setEtransmision(data.especificaciones_de_la_transmision);
+      setVelocidades(data.velocidades);
+    }
+
+    fetchData();
   }, []);
 
   //esta funcion se dedica a leer el objeto(JSON) y listar la key con el value en el componente
@@ -74,12 +51,13 @@ export default function Item({ route, navigation }) {
     {
       /* Falta acabar de depurar el map que devuelve Mapeo de Arriba */
       /**Gracias al niko hay que depurar bastante mas de lo necesario */
+      /*Y por eso estamos tan agradecidos del trabajo que ha hecho raul*/
     }
 
     //si el objeto contiente otros objetos dentro entrara aqui
-
     if (typeof item[1] === "object") {
       let result = Mapeo(item[1]);
+
       //si mapeo devuelve el segundo key null
       if (result[1] == null || result[1] == undefined) {
         return (
