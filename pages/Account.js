@@ -75,11 +75,6 @@ export default function Account({ navigation }) {
       <TouchableOpacity style={styles.loginBtn} onPress={handlePress}>
         <Text style={styles.loginText}>Continue</Text>
       </TouchableOpacity>
-
-      <TouchableOpacity style={styles.googleBtn}>
-        <Ionicons name="logo-google" size={32} color={paleta.variante1} />
-        <Text style={styles.googleText}>LOGIN WITH GOOGLE </Text>
-      </TouchableOpacity>
     </View>
   );
 }

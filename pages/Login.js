@@ -67,9 +67,8 @@ export default function Login({ navigation }) {
           <Text style={styles.createAccountBtn}> Reset </Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.googleBtn}>
-        <Ionicons name="logo-google" size={32} color={paleta.variante1} />
-        <Text style={styles.googleText}>LOGIN WITH GOOGLE </Text>
+      <TouchableOpacity style={styles.googleBtn} onPress={() => navigation.navigate("Home")}>
+        <Text style={styles.googleText}>GUEST </Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.loginBtn}

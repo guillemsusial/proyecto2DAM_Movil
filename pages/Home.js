@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   two_column_scroll: {
-    width: "50%",
+    width: "100%",
     flexDirection: "row",
   },
 });

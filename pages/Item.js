@@ -78,10 +78,8 @@ export default function Item({ route, navigation }) {
       //si devuelve bien los datos
       return (
         <View style={styles.two_column_scroll}>
-          <View style={{ width: "60%" }}>
+          <View style={{ width: "100%" }}>
             <Text style={{ color: paleta.text, fontSize: 19 }}>{item[0]}</Text>
-          </View>
-          <View style={{ width: "40%" }}>
             <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
               {item[1]}
             </Text>
@@ -100,10 +98,8 @@ export default function Item({ route, navigation }) {
     /*De aqui ---------------------------------------------------------*/
     if (Map["potencia"]) {
       s.push([
-        <View style={{ width: "60%" }}>
+        <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>potencia</Text>
-        </View>,
-        <View style={{ width: "40%" }}>
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["potencia"]} {Map["unidad_de_potencia"]} / {Map["rpm"]} rpm
           </Text>
@@ -111,10 +107,8 @@ export default function Item({ route, navigation }) {
       ]);
     } else if (Map["par"]) {
       s.push([
-        <View style={{ width: "60%" }}>
+        <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>par</Text>
-        </View>,
-        <View style={{ width: "40%" }}>
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["par"]} {Map["unidad_de_par"]} / {Map["rpm"]} rpm
           </Text>
@@ -122,10 +116,8 @@ export default function Item({ route, navigation }) {
       ]);
     } else if (Map["unidad_del_combustible"]) {
       s.push([
-        <View style={{ width: "60%" }}>
+        <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>combustible</Text>
-        </View>,
-        <View style={{ width: "40%" }}>
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["capacidad_de_combustible"]} {Map["unidad_del_combustible"]}
           </Text>
@@ -133,10 +125,8 @@ export default function Item({ route, navigation }) {
       ]);
     } else if (Map["peso_en_vacio"]) {
       s.push([
-        <View style={{ width: "60%" }}>
+        <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>pesos</Text>
-        </View>,
-        <View style={{ width: "40%" }}>
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["peso_en_vacio"]} {Map["unidad_del_peso"]}
           </Text>
@@ -144,12 +134,10 @@ export default function Item({ route, navigation }) {
       ]);
     } else if (Map["velocidad_maxima"]) {
       s.push([
-        <View style={{ width: "60%" }}>
+        <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>
             velocidad_maxima
           </Text>
-        </View>,
-        <View style={{ width: "40%" }}>
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["velocidad_maxima"]} {Map["unidad_de_velocidad"]}
           </Text>
@@ -157,10 +145,8 @@ export default function Item({ route, navigation }) {
       ]);
     } else if (Map["unidad_de_aceleracion"]) {
       s.push([
-        <View style={{ width: "60%" }}>
+        <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>0-100_km/h</Text>
-        </View>,
-        <View style={{ width: "40%" }}>
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["0-100_km/h"]} {Map["unidad_de_aceleracion"]}
           </Text>
@@ -171,10 +157,8 @@ export default function Item({ route, navigation }) {
       try {
         for (var key in Map) {
           s.push([
-            <View style={{ width: "60%" }}>
+            <View style={{ width: "100%" }}>
               <Text style={{ color: paleta.text, fontSize: 19 }}>{key}</Text>
-            </View>,
-            <View style={{ width: "30%" }}>
               <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
                 {Map[key]}
               </Text>
@@ -278,7 +262,7 @@ const styles = StyleSheet.create({
   },
   meta: {
     flexDirection: "row",
-    marginTop: 20,
+    marginTop: 0,
   },
   author: {
     fontSize: 19,

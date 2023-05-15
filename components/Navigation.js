@@ -80,7 +80,7 @@ export default function Navigation() {
           name={"Profile"}
           component={Profile}
           options={({ navigation, route }) => ({
-            headerTitle: "userX",
+            headerTitle: "User Profile",
             headerLeft: () => (
               <Ionicons
                 name="chevron-back-outline"
@@ -116,7 +116,7 @@ export default function Navigation() {
               />
             ),
             unmountOnBlur: true,
-            headerTitle: "X",
+            headerTitle: "Item",
             drawerLabel: () => null,
             title: undefined,
             drawerItemStyle: { display: "none" },

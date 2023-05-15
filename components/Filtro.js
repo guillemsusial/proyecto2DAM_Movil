@@ -20,8 +20,9 @@ const Search = () => {
     >
       <Searchbar
         style={{
-          backgroundColor: paleta.variante1,
+          backgroundColor: paleta.text,
           width: "80%",
+          marginTop: "4%",
         }}
         inputStyle={{ color: paleta.fondo }}
         placeholderTextColor={paleta.fondo}

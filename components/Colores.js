@@ -7,7 +7,7 @@ export const colors = {
 };
 
 export const paleta = {
-  fondo: "#111111",
+  fondo:  "#111111",
   fondoT: "#999999",
   principal1: "#FF5200",
   principal1T: "rgba(255, 82, 0, 0.23)",
