@@ -11,7 +11,7 @@ import fetchItemData from "../services/ItemApiCall"
 //Faltan las imagenes que pertenecen a cada coche(BBDD¿?)
 
 export default function Item({ route, navigation }) {
-  
+
   // Inicializamos los state como estados vacíos y segmentamos la especificaciones
   const [state, setState] = useState({});
   const [Didentidad, setDidentidad] = useState({});
@@ -23,7 +23,7 @@ export default function Item({ route, navigation }) {
 
   // Variables recibidas por parametro(generalmente desde home)
   const { name, ano_inicio, ano_finalizacion, brand } = route.params;
-  
+
   // Utilizamos useEffect para realizar la petición axios al cargar la página
   useEffect(() => {
 
@@ -80,6 +80,12 @@ export default function Item({ route, navigation }) {
         <View style={styles.two_column_scroll}>
           <View style={{ width: "100%" }}>
             <Text style={{ color: paleta.text, fontSize: 19 }}>{item[0]}</Text>
+            <View
+              style={{
+                borderBottomColor: 'white',
+                borderBottomWidth: StyleSheet.hairlineWidth,
+              }}
+            />
             <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
               {item[1]}
             </Text>
@@ -100,6 +106,12 @@ export default function Item({ route, navigation }) {
       s.push([
         <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>potencia</Text>
+          <View
+            style={{
+              borderBottomColor: 'white',
+              borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+          />
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["potencia"]} {Map["unidad_de_potencia"]} / {Map["rpm"]} rpm
           </Text>
@@ -109,6 +121,12 @@ export default function Item({ route, navigation }) {
       s.push([
         <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>par</Text>
+          <View
+            style={{
+              borderBottomColor: 'white',
+              borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+          />
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["par"]} {Map["unidad_de_par"]} / {Map["rpm"]} rpm
           </Text>
@@ -118,6 +136,12 @@ export default function Item({ route, navigation }) {
       s.push([
         <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>combustible</Text>
+          <View
+            style={{
+              borderBottomColor: 'white',
+              borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+          />
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["capacidad_de_combustible"]} {Map["unidad_del_combustible"]}
           </Text>
@@ -127,6 +151,12 @@ export default function Item({ route, navigation }) {
       s.push([
         <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>pesos</Text>
+          <View
+            style={{
+              borderBottomColor: 'white',
+              borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+          />
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["peso_en_vacio"]} {Map["unidad_del_peso"]}
           </Text>
@@ -138,6 +168,12 @@ export default function Item({ route, navigation }) {
           <Text style={{ color: paleta.text, fontSize: 19 }}>
             velocidad_maxima
           </Text>
+          <View
+            style={{
+              borderBottomColor: 'white',
+              borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+          />
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["velocidad_maxima"]} {Map["unidad_de_velocidad"]}
           </Text>
@@ -147,6 +183,12 @@ export default function Item({ route, navigation }) {
       s.push([
         <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>0-100_km/h</Text>
+          <View
+            style={{
+              borderBottomColor: 'white',
+              borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+          />
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
             {Map["0-100_km/h"]} {Map["unidad_de_aceleracion"]}
           </Text>
@@ -159,6 +201,12 @@ export default function Item({ route, navigation }) {
           s.push([
             <View style={{ width: "100%" }}>
               <Text style={{ color: paleta.text, fontSize: 19 }}>{key}</Text>
+              <View
+                style={{
+                  borderBottomColor: 'white',
+                  borderBottomWidth: StyleSheet.hairlineWidth,
+                }}
+              />
               <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
                 {Map[key]}
               </Text>
