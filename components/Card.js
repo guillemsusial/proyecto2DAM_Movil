@@ -28,6 +28,7 @@ export default function Cards({...props}) {
       onPress={() => navigation.navigate("Item", {
         itemId: props.key,
         name: props.name,
+        url: props.url,
         ano_inicio: props.ano_inicio,
         ano_finalizacion: props.ano_finalizacion
       })}
@@ -36,7 +37,7 @@ export default function Cards({...props}) {
       <Card.Cover
         // #falta implementar las imagenes correspondientes
         source={{
-          uri: "https://hips.hearstapps.com/hmg-prod/images/2023-mclaren-artura-101-1655218102.jpg?crop=1.00xw:0.847xh;0,0.153xh&resize=1200:*",
+          uri: props.url,
         }}
       />
       <Card.Title

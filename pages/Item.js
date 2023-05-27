@@ -22,7 +22,7 @@ export default function Item({ route, navigation }) {
   const [Velocidades, setVelocidades] = useState({});
 
   // Variables recibidas por parametro(generalmente desde home)
-  const { name, ano_inicio, ano_finalizacion, brand } = route.params;
+  const { name, url, ano_inicio, ano_finalizacion, brand } = route.params;
 
   // Utilizamos useEffect para realizar la petición axios al cargar la página
   useEffect(() => {
@@ -227,7 +227,7 @@ export default function Item({ route, navigation }) {
           <View style={styles.containerDos}>
             <Image
               source={{
-                uri: "https://hips.hearstapps.com/hmg-prod/images/2023-mclaren-artura-101-1655218102.jpg?crop=1.00xw:0.847xh;0,0.153xh&resize=1200:*",
+                uri: url,
               }}
               style={styles.image}
             />

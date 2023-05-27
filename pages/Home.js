@@ -30,6 +30,8 @@ export default function Home() {
               <Cards
                 key={item.id}
                 name={item.name}
+                url={item.url}
+                {...console.log(item.url)}
                 ano_inicio={item.ano_inicio}
                 ano_finalizacion={item.ano_finalizacion}
               />
