@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   containerDos: {
-    maxHeight: 300,
+    maxHeight: 240,
     backgroundColor: paleta.variante1,
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 27,
@@ -324,7 +324,6 @@ const styles = StyleSheet.create({
   image: {
     width: "auto",
     height: "100%",
-
     borderRadius: 15,
     overflow: "hidden",
   },
