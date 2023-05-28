@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import { paleta } from "../components/Colores";
 import { Image } from "react-native";
 import { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import fetchItemData from "../services/ItemApiCall"
 
 //exp://172.17.40.175:19000
@@ -13,6 +14,7 @@ import fetchItemData from "../services/ItemApiCall"
 export default function Item({ route, navigation }) {
 
   // Inicializamos los state como estados vacíos y segmentamos la especificaciones
+  const { t } = useTranslation();
   const [state, setState] = useState({});
   const [Didentidad, setDidentidad] = useState({});
   const [Emotor, setEmotor] = useState({});
@@ -105,7 +107,7 @@ export default function Item({ route, navigation }) {
     if (Map["potencia"]) {
       s.push([
         <View style={{ width: "100%" }}>
-          <Text style={{ color: paleta.text, fontSize: 19 }}>potencia</Text>
+          <Text style={{ color: paleta.text, fontSize: 19 }}>{t('Potencia')}</Text>
           <View
             style={{
               borderBottomColor: 'white',
@@ -113,14 +115,13 @@ export default function Item({ route, navigation }) {
             }}
           />
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
-            {Map["potencia"]} {Map["unidad_de_potencia"]} / {Map["rpm"]} rpm
-          </Text>
+            {Map["potencia"]} {Map["unidad_de_potencia"]} / {Map["rpm"]} {t('Rpm')}</Text>
         </View>,
       ]);
     } else if (Map["par"]) {
       s.push([
         <View style={{ width: "100%" }}>
-          <Text style={{ color: paleta.text, fontSize: 19 }}>par</Text>
+          <Text style={{ color: paleta.text, fontSize: 19 }}>{t('Par')}</Text>
           <View
             style={{
               borderBottomColor: 'white',
@@ -128,14 +129,14 @@ export default function Item({ route, navigation }) {
             }}
           />
           <Text style={{ color: paleta.fondoT, fontSize: 19 }}>
-            {Map["par"]} {Map["unidad_de_par"]} / {Map["rpm"]} rpm
+            {Map["par"]} {Map["unidad_de_par"]} / {Map["rpm"]} {t('Par')}
           </Text>
         </View>,
       ]);
     } else if (Map["unidad_del_combustible"]) {
       s.push([
         <View style={{ width: "100%" }}>
-          <Text style={{ color: paleta.text, fontSize: 19 }}>combustible</Text>
+          <Text style={{ color: paleta.text, fontSize: 19 }}>{t('Combustible')}</Text>
           <View
             style={{
               borderBottomColor: 'white',
@@ -150,7 +151,7 @@ export default function Item({ route, navigation }) {
     } else if (Map["peso_en_vacio"]) {
       s.push([
         <View style={{ width: "100%" }}>
-          <Text style={{ color: paleta.text, fontSize: 19 }}>pesos</Text>
+          <Text style={{ color: paleta.text, fontSize: 19 }}>{t('Pesos')}</Text>
           <View
             style={{
               borderBottomColor: 'white',
@@ -166,7 +167,7 @@ export default function Item({ route, navigation }) {
       s.push([
         <View style={{ width: "100%" }}>
           <Text style={{ color: paleta.text, fontSize: 19 }}>
-            velocidad_maxima
+          {t('Velocidad maxima')}
           </Text>
           <View
             style={{
