@@ -1,4 +1,5 @@
 import { View, Text, Button, ScrollView, FlatList } from "react-native";
+import * as Linking from 'expo-linking'
 import Boxes from "../components/Boxes";
 import { StyleSheet } from "react-native";
 import { paleta } from "../components/Colores";
@@ -314,13 +315,8 @@ export default function Item({ route, navigation }) {
           <View style={{ alignItems: "flex-end",marginTop:10 }}>
             <View style={styles.fixToText}>
               <Button
-              
-                title="Left button"
-                onPress={() => Alert.alert("Left button pressed")}
-              />
-              <Button
-                title="Right button"
-                onPress={() => Alert.alert("Right button pressed")}
+                title="Ver en AR"
+                onPress={() => Linking.openURL('http://192.168.1.128:3000/ModelViewer?modelName='+name)}
               />
             </View>
           </View>
@@ -332,7 +328,7 @@ export default function Item({ route, navigation }) {
             </Text>
           </View>
 
-          <Text style={styles.content}>Descripcion de ejemplo</Text>
+          {/* <Text style={styles.content}>Descripcion de ejemplo</Text> */}
 
           <Boxes size={1} bg={"#ffa108"} br={10} clr={"column"}>
             {/* ------------------DATOS IDENTIFICATIVOS-------------- */}
@@ -404,6 +400,7 @@ const styles = StyleSheet.create({
   meta: {
     flexDirection: "row",
     marginTop: 0,
+    marginBottom: 30,
   },
   author: {
     fontSize: 19,
@@ -461,5 +458,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     position: "absolute",
     flexDirection: "column",
+    marginTop: 60
   },
 });
