@@ -40,14 +40,14 @@ export default function Account({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.Title}>Create an Account</Text>
+      <Text style={styles.Title}>Crea tu cuenta</Text>
 
       <StatusBar style="auto" />
       <View style={styles.inputView}>
         <Ionicons name="person" size={32} color={paleta.variante1} />
         <TextInput
           style={styles.TextInput}
-          placeholder="Name"
+          placeholder="Nombre de usuario"
           placeholderTextColor={paleta.variante1}
           onChangeText={(name) => setName(name)}
         />
@@ -66,14 +66,14 @@ export default function Account({ navigation }) {
         <Ionicons name="lock-closed" size={32} color={paleta.variante1} />
         <TextInput
           style={styles.TextInput}
-          placeholder="Password"
+          placeholder="Contraseña"
           placeholderTextColor={paleta.variante1}
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
       </View>
       <TouchableOpacity style={styles.loginBtn} onPress={handlePress}>
-        <Text style={styles.loginText}>Continue</Text>
+        <Text style={styles.loginText}>Registrarse</Text>
       </TouchableOpacity>
     </View>
   );

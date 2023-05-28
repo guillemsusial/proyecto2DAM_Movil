@@ -314,7 +314,7 @@ export default function Item({ route, navigation }) {
           </View>
           <View style={{ alignItems: "flex-end",marginTop:10 }}>
             <View style={styles.fixToText}>
-              <Button
+              <Button color={paleta.principal1} icon="camera"
                 title="Ver en AR"
                 onPress={() => Linking.openURL('http://192.168.1.128:3000/ModelViewer?modelName='+name)}
               />

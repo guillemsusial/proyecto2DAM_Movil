@@ -36,7 +36,7 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.Title}>CAR UI</Text>
+      <Text style={styles.Title}>Detail Wheels</Text>
       <StatusBar style="auto" />
       <View style={styles.inputView}>
         <TextInput
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     //justifyContent: 'center',
   },
   Title: {
-    fontSize: 60,
+    fontSize: 50,
     marginTop: "20%",
     color: paleta.principal1,
     fontWeight: "bold",

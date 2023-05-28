@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Button } from "react-native";
 import Boxes from "../components/Boxes";
 import { useState, useEffect } from "react";
 
@@ -6,6 +6,7 @@ import Cards from "../components/Card";
 import { StyleSheet } from "react-native";
 import Search from "../components/Filtro";
 import fetchHomeData from "../services/HomeApiCall"
+import { paleta } from "../components/Colores"
 
 export default function Home() {
   const [state, setState] = useState({ names: [] });
@@ -19,6 +20,13 @@ export default function Home() {
   }, []);
   return (
     <>
+      <Button title="Recargar" color={paleta.variante3} onPress={() => {
+        async function fetchData() {
+          const formattedData = await fetchHomeData();
+          setState(formattedData);
+        }
+        fetchData();
+      }}/>
       <Search />
       {/* Creamos una box y le pasamos el prametro de tamaño */}
       <Boxes size={1}>
