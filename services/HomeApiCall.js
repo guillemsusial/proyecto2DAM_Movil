@@ -13,6 +13,7 @@ export default async function fetchHomeData(){
             projection: {
             id: 1,
             nombre: 1,
+            url: 1,
             "datos_identificativos.fabricante": 1,
             "datos_identificativos.años_de_fabricacion.año_de_inicio": 1,
             "datos_identificativos.años_de_fabricacion.año_de_finalizacion": 1,
@@ -40,9 +41,10 @@ export default async function fetchHomeData(){
         // Formateamos la respuesta con el formato deseado
         let formattedData = {
             names: rawData.documents.map(
-                ({ _id, nombre, datos_identificativos }) => ({
+                ({ _id, nombre, url, datos_identificativos }) => ({
                     id: _id,
                     name: nombre,
+                    url: url,
                     brand: datos_identificativos.fabricante,
                     ano_inicio:
                         datos_identificativos.años_de_fabricacion.año_de_inicio,

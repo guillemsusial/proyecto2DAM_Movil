@@ -36,18 +36,12 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.Title}>Log In</Text>
-      <View style={{ flexDirection: "row", marginTop: 50 }}>
-        <Text style={styles.Text}>New user? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Account")}>
-          <Text style={styles.createAccountBtn}> Create an account</Text>
-        </TouchableOpacity>
-      </View>
+      <Text style={styles.Title}>CAR UI</Text>
       <StatusBar style="auto" />
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Email."
+          placeholder="Email"
           placeholderTextColor={paleta.principal1}
           onChangeText={(email) => setEmail(email)}
         />
@@ -55,26 +49,32 @@ export default function Login({ navigation }) {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Password."
+          placeholder="Contraseña"
           placeholderTextColor={paleta.principal1}
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
       </View>
-      <View style={{ flexDirection: "row", marginBottom: 30 }}>
-        <Text style={styles.Text}>Forgot Password? </Text>
+      <View style={{ flexDirection: "row" }}>
+        <Text style={styles.Text}>Contraseña olvidada? </Text>
         <TouchableOpacity>
-          <Text style={styles.createAccountBtn}> Reset </Text>
+          <Text style={styles.createAccountBtn}> Recuperar </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{ flexDirection: "row", marginBottom: 30 }}>
+        <Text style={styles.Text}>Nuevo usuario? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Account")}>
+          <Text style={styles.createAccountBtn}> Regístrate</Text>
         </TouchableOpacity>
       </View>
       <TouchableOpacity style={styles.googleBtn} onPress={() => navigation.navigate("Home")}>
-        <Text style={styles.googleText}>GUEST </Text>
+        <Text style={styles.googleText}>Entrar como invitado </Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.loginBtn}
         onPress={handlePress} //navigation.navigate("Home")
       >
-        <Text style={styles.loginText}>LOGIN</Text>
+        <Text style={styles.loginText}>INICIAR SESIÓN</Text>
       </TouchableOpacity>
       <View style={styles.checkboxContainer}>
         <Checkbox
@@ -82,7 +82,7 @@ export default function Login({ navigation }) {
           value={isChecked}
           onValueChange={setChecked}
         />
-        <Text style={styles.paragraph}>Keep me signed in</Text>
+        <Text style={styles.paragraph}>Mantener mi sesión iniciada</Text>
       </View>
     </View>
   );
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     marginTop: "20%",
     color: paleta.principal1,
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 70,
   },
   image: {
     width: Alto * 0.5,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     height: 60,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
+    marginTop: 20,
     backgroundColor: paleta.variante1,
   },
   loginText: {
@@ -150,19 +150,18 @@ const styles = StyleSheet.create({
   googleText: {
     width: "35%",
     textAlign: "center",
-
-    fontSize: 15,
+    fontSize: 18,
     color: paleta.variante1,
   },
   createAccountBtn: {
-    fontSize: 20,
+    fontSize: 17,
     color: paleta.variante1,
     fontWeight: "bold",
     marginBottom: 20,
   },
   Text: {
     color: paleta.text,
-    fontSize: 20,
+    fontSize: 17,
     flexDirection: "row",
   },
   checkboxContainer: {

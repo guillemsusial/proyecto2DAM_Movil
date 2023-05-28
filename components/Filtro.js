@@ -26,7 +26,7 @@ const Search = () => {
         }}
         inputStyle={{ color: paleta.fondo }}
         placeholderTextColor={paleta.fondo}
-        placeholder="Search"
+        placeholder="Buscar..."
         onChangeText={onChangeSearch}
         value={searchQuery}
       />
