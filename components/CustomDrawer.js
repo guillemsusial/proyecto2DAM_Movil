@@ -24,7 +24,7 @@ const CustomDrawer = (props) => {
         <ImageBackground source={null} style={{ padding: 20 }}>
           <Image
             source={{
-              uri: "https://www.pngarts.com/files/11/Avatar-PNG-Free-Download.png",
+              uri: "https://img.freepik.com/foto-gratis/hombre-guapo-sentado-coche-probarlo_1303-21797.jpg",
             }}
             style={{
               height: 80,
@@ -41,7 +41,7 @@ const CustomDrawer = (props) => {
               marginBottom: 5,
             }}
           >
-            John Doe
+            Manolo
           </Text>
         </ImageBackground>
         <View

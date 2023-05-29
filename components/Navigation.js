@@ -77,10 +77,19 @@ export default function Navigation() {
           })}
         />
         <Drawer.Screen
-          name={"Profile"}
+          name={"Home"}
+          component={Home}
+          options={{
+            drawerIcon: ({ color }) => (
+              <Ionicons name="home" size={32} color={paleta.text} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={"Mi Perfil"}
           component={Profile}
           options={({ navigation, route }) => ({
-            headerTitle: "User Profile",
+            headerTitle: "Perfil de usuario",
             headerLeft: () => (
               <Ionicons
                 name="chevron-back-outline"
@@ -95,15 +104,6 @@ export default function Navigation() {
           })}
         />
         <Drawer.Screen
-          name={"Home"}
-          component={Home}
-          options={{
-            drawerIcon: ({ color }) => (
-              <Ionicons name="home" size={32} color={paleta.text} />
-            ),
-          }}
-        />
-        <Drawer.Screen
           name={"Item"}
           component={Item}
           options={({ navigation, route }) => ({
@@ -116,7 +116,7 @@ export default function Navigation() {
               />
             ),
             unmountOnBlur: true,
-            headerTitle: "Item",
+            headerTitle: "",
             drawerLabel: () => null,
             title: undefined,
             drawerItemStyle: { display: "none" },

@@ -17,27 +17,26 @@ const Profile = () => {
           <Image
             style={styles.profilePhoto}
             source={{
-              uri: "https://www.pngarts.com/files/11/Avatar-PNG-Free-Download.png",
+              uri: "https://img.freepik.com/foto-gratis/hombre-guapo-sentado-coche-probarlo_1303-21797.jpg",
             }}
           />
-          <Text style={styles.nameText}>Your Name</Text>
+          <Text style={styles.nameText}>Manolo</Text>
         </View>
       </View>
       <View style={styles.bioContainer}>
         <Text style={styles.bioText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
-          ullamcorper nisi.
+        Soy Manolo y mi pasión son los coches. Desde niño, me fascina su diseño y la emoción de conducir. Son mucho más que simples máquinas, son una forma de expresión y diversión sin igual. Siempre busco aprender y compartir mi amor por los coches con otros entusiastas.
         </Text>
       </View>
       <View style={styles.statsContainer}>
       
         <View style={styles.statContainer}>
-          <Text style={styles.statCount}>5678</Text>
-          <Text style={styles.statLabel}>Followers</Text>
+          <Text style={styles.statCount}>7</Text>
+          <Text style={styles.statLabel}>Marcas seguidas</Text>
         </View>
         <View style={styles.statContainer}>
-          <Text style={styles.statCount}>9101</Text>
-          <Text style={styles.statLabel}>Following</Text>
+          <Text style={styles.statCount}>3</Text>
+          <Text style={styles.statLabel}>Coches guardados</Text>
         </View>
       </View>
       {/* <TouchableOpacity style={styles.button} onPress={handleEditPress}>
