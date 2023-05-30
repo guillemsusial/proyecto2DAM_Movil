@@ -39,7 +39,6 @@ export default async function checkUser(username, password) {
     );
 
     if (response.data.documents.length > 0) {
-      //console.log(response.data.documents[0].password);
       const hash = response.data.documents[0].password;
 
       const result = bcrypt.compareSync(password, hash);
