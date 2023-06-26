@@ -317,7 +317,7 @@ export default function Item({ route, navigation }) {
             <View style={styles.fixToText}>
               <Button color={paleta.principal1} icon="camera"
                 title="Ver en AR"
-                onPress={() => Linking.openURL('http://192.168.1.128:3000/ModelViewer?modelName='+name)}
+                onPress={() => Linking.openURL('https://detail-wheels-admin.onrender.com/ModelViewer?modelName='+name)}
               />
             </View>
           </View>
